@@ -1,0 +1,25 @@
+{
+	"compilerOptions": {
+	  "outDir": "../out-tsc/app",
+	  "module": "commonjs",
+	  "target": "es5",
+	  "types": ["jasmine", "jasminewd2", "node"],
+	  "strict": true,
+	  "noImplicitAny": false,
+	  "allowSyntheticDefaultImports": true,
+	  "esModuleInterop": true,
+	  "experimentalDecorators": true,
+	  "emitDecoratorMetadata": true,
+	  "noUnusedLocals": false,
+	  "preserveSymlinks": true,
+	  "lib": ["es2016",
+			  "es2015",
+			  "dom"
+		  ],
+		  "pretty": true,
+		  "typeRoots": [
+			  "../node_modules/@types"
+		  ]
+	}
+  }
+  

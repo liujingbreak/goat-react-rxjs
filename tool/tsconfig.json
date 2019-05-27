@@ -1,9 +1,9 @@
 {
 	"compilerOptions": {
-		"rootDir": ".",
+		"rootDir": "src",
 		"baseUrl": ".",
 		"outDir": ".",
-		"declaration": true,
+		"declaration": false,
 		"module":"commonjs",
 		"target":"es2016",
 		"noImplicitAny": true,
@@ -28,6 +28,6 @@
 		}
 	},
 	
-	"include": ["**/*.ts"],
-	"exclude": ["**/*.d.ts"]
+	"include": ["src/**/*.ts"],
+	"exclude": ["src/**/*.d.ts"]
 }

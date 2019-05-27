@@ -1,103 +1,73 @@
-# Take-Home Exercise
-Thank you for taking the time to complete this coding exercise! 
+# Sneaker Exercise Demonstration
 
-We don’t just give out take-home tests for our own benefit; it saves you time as well. We hope that this allows you the opportunity to showcase your best work under more realistic working scenarios. Our take-home test can be completed on your own schedule. More importantly, we know that writing code live can be nerve-wracking and it can be hard to do a great job under pressure. We don't expect this will take more than 3 hours, but submitting something you're proud of is far more important than any amount of time spent or not spent on the challenge; make sure you're happy with the result! It should run without errors in the latest version of Chrome.
+React 16 + Rxjs + Typescript + create-react-app
 
-## Objective
-Design a grid view to showcase a collection of sneakers. When clicking on a sneaker, the application displays a detail view of the sneaker.
+### How to run this demo
 
-## Acceptance
-- It is a React application.
-- The collection shows 20 shoes initially.
-- The user can take an action to load more shoes.
-- Clicking on a shoe shows a detail view of the shoe.
-- The project includes a `README.md` documenting setup and execution steps for your applicaton, as well as any assumptions you've made to complete this task.
-
-Beyond these acceptance, we encourage you to make as many assumptions as you need to complete this task. When doing so, please document these assumptions either in a comment above the code or in the project's `README.md`.
-
-For reference, a more robust version of this exercise:
-[https://www.goat.com/sneakers](https://www.goat.com/sneakers)
-
-
-## Self-Grading
-- Are setup and execution instructions for the project clear?
-- Is the application mobile-friendly?
-- Is the application well tested?
-- Is the application organized in logical concepts, e.g. components, containers, higher-order components, etc.?
-
-## Submitting
-Please submit a `.zip` file of your project (or a link to a `.zip` file). Also, please be sure to include setup and execution instructions. We will download your `.zip` file and run the application.
-
----
-
-# API
-We've included a mock JSON API server to support this coding exercise. 
-
-To start the server:
-
-```sh
-npm install
-npm start
+#### 1. Build
+At root directory, run commands:
+```bash
+# install dependency
+npm i
+# build static assets to /build
+npm run build 
+# Serve HTTP at localhost:3000
+npm run start:static
 ```
 
-By default, the API is available at `0.0.0.0:5000`.
-
-For more information, please see [json-server](https://github.com/typicode/json-server)
-
-## Documentation
-### Fetch
-
+#### 2. Start mock json API server at localhost:5000
+Open another terminal, and run commands
 ```
-GET /sneakers
-GET /sneakers/335047
+npm run start:json
 ```
 
-### Filter
+#### 3. Visit `http://localhost:3000` with browser
 
-```
-GET /sneakers?shoe_condition=used
-```
+### Run End-to-end Test
+>  Yes, I would choose to use limited time on writing end-to-end test instead of unit test in reality too.
 
-Add _like to filter (RegExp supported)
-
-```
-GET /sneakers?name_like=Air%20Jordan%201
+At first time, need to install Webdriver manager and other required dependencies.
+```bash
+npm run test:init
 ```
 
-### Paginate
-
-Use `_page` and optionally `_limit` to paginate returned data.
-
-In the `Link` header you'll get `first`, `prev`, `next` and `last` links.
-
-
+Then run actual test.
 ```
-GET /sneakers?_page=1
-GET /sneakers?_page=1&_limit=20
+npm test
 ```
+> During run test, above `start:json` and `start:static` commands should also be keep running.
 
-_10 items are returned by default_
+## Other user story assumptions
+- As a user, I can see responsive grid layout for sneaker list page, with 2-3-4-6 columns in difference size device, the grid cell border should be drawn properly.
 
-### Sort
+- As a user, I can see responsive layout in sneaker detail page.
 
-Add `_sort` and `_order` (ascending order by default)
+- As a user, I want to visit specific sneaker page through human readable URL path like slug
+  
+- As as user I can see loading indicator properly ( a line of poor text is for demo only)
 
-```
-GET /sneakers?_sort=retail_price_cents&_order=asc
-```
+- As a user, when I am visiting sneaker detail page, I can _history back_ to list page and see page is scrolled to proper position where I was.
 
-For multiple fields, use the following format:
+- As a user, I want to see fancy animation during route switching. 
+  - `No, the author is too tired to demo it in this exercise`.
 
-```
-GET /sneakers?_sort=retail_price_cents,release_date_unix&_order=desc,asc
-```
+- As a SEO crawler, I want see those static pages served in `/sneakers/....` address.
+   - `No, the author is too tired to demo it in this exercise`.
 
-### Slice
+## Nonfunctionals
 
-Add `_start` and `_end` or `_limit` (an `X-Total-Count` header is included in the response)
+- [ ] Error tracking, sending with Snowplow.
+- [x] Error page (when API down or some serious issue occurs)
+- [x] Redirect to /sneakers when user visiting inexisting page.
+- [ ] 
+- [ ] Animation HOC
+- [ ] SSR and SEO friendly
+  - create-react-app does not support SSR out of box, need work on tools.
+- [ ] Show Sneaker details from lru cache ? (or HTTP API cache is enabled)
+- [x] End-to-end test
+- [ ] Device supporting ( down to Android 4.4 ?)
+- [x] Be able to hack Webpack configuration for:
+  - Setting up Rxjs resolve alias
+  - setting up SSR build
+- [ ] i18n support
 
-```
-GET /sneakers?_start=20&_end=30
-```
-
-_Works exactly as [Array.slice](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) (i.e. `_start` is inclusive and `_end` exclusive)_

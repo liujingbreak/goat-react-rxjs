@@ -1,0 +1,13 @@
+@import "../common/variables";
+
+.BaseRoute {
+	display: block;
+	flex-grow: 1;
+	transition: padding 0.25s ease-out;
+}
+
+:global(.device-width-3),:global(.device-width-4),:global(.device-width-6) {
+	.BaseRoute {
+		padding: 5%;
+	}
+}

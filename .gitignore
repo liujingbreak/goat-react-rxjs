@@ -10,7 +10,8 @@
 
 # production
 /build
-
+/ssr-build
+/logs
 # misc
 .DS_Store
 .env.local

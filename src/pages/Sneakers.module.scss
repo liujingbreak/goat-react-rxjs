@@ -1,0 +1,129 @@
+@import "../common/variables";
+
+.SneakerGrid {
+	text-align: left;
+}
+.gridItemsTail {
+	border-left: $border-line-color;
+	vertical-align: middle;
+}
+.SneakerGridCell {
+	position: relative;
+	vertical-align: middle;
+	display: inline-block;
+	border-left: $border-line-color;
+	border-bottom: $border-line-color;
+	img {
+		transition: transform 0.25s ease-out;
+		transform: scale(1);
+	}
+	&:hover {
+		img {
+			transform: scale(1.3);
+		}
+	}
+}
+:global(.device-width-2) {
+	 .SneakerGridCell {
+		width: 50%;
+		padding-top: 70%;
+	 }
+	 .gridItemsTail {
+		padding-top: 70%;
+		display: inline-block;
+		&:nth-child(2n+1) {
+			display: none;
+		}
+	 }
+}
+:global(.device-width-3) {
+	.SneakerGrid {
+		border-top: $border-line-color;
+	}
+	.SneakerGridCell {
+		width: 33.3%;
+		padding-top: 33.3%;
+		&:nth-child(3n) {
+			width: 33.4%;
+			padding-top: 33.3%;
+			border-right: $border-line-color;
+		}
+	}
+	.gridItemsTail {
+		padding-top: 33.3%;
+		display: inline-block;
+		&:nth-child(3n+1) {
+			display: none;
+		}
+	}
+}
+:global(.device-width-4) {
+	.SneakerGrid {
+		border-top: $border-line-color;
+	}
+	.SneakerGridCell {
+		width: 25%;
+		padding-top: 25%;
+		&:nth-child(4n) {
+			border-right: $border-line-color;
+		}
+	}
+	.gridItemsTail {
+		display: inline-block;
+		padding-top: 25%;
+		&:nth-child(4n+1) {
+			display: none;
+		}
+	}
+}
+:global(.device-width-6) {
+	.SneakerGrid {
+		border-top: $border-line-color;
+	}
+	.SneakerGridCell {
+		width: 16.6%;
+		padding-top: 16.6%;
+		&:nth-child(6n) {
+			width: 17%;
+			padding-top: 16.6%;
+			border-right: $border-line-color;
+		}
+	}
+	.gridItemsTail {
+		padding-top: 16.6%;
+		display: inline-block;
+		&:nth-child(6n+1) {
+			display: none;
+		}
+	}
+}
+
+.nextPageBtn {
+	margin: 2rem auto;
+	opacity: 1;
+	&.hide {
+		opacity: 0;
+		transition: opacity 0.25s linear;
+	}
+}
+
+.cellContent {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	padding: 1rem;
+}
+.cellImage {
+	display: block;
+	margin: auto;
+	max-width: 70%;
+	max-height: 70%;
+}
+.name {
+	color: rgba(0,0,0,0.7);
+}

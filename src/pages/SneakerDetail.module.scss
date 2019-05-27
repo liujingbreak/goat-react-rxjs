@@ -1,0 +1,52 @@
+@import "../common/variables";
+
+.main {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-wrap: nowrap;
+	img {
+		display: block;
+		max-width: 375px;
+		max-height: 375px;
+	}
+	h3 {
+		color: rgba(0,0,0,0.9);
+		display: block;
+	}
+}
+.left {
+	border-right: $border-line-color;
+}
+.right, .left {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	height: 400px;
+	width: 50%;
+}
+.story {
+	display: block;
+	width: 100%;
+	padding: 1rem;
+	flex-shrink: 0;
+	border-top: $border-line-color;
+	text-align: left;
+}
+
+:global(.device-width-2),:global(.device-width-3) {
+	.left {
+		border-right: 0;
+		width: 100%;
+	}
+	.right {
+		height: auto;
+	}
+	.main {
+		flex-wrap: wrap;
+		img {
+			width: 80%;
+		}
+	}
+}

@@ -10,21 +10,26 @@
   },
   "engineStrict": true,
   "scripts": {
-    "start-json": "json-server api.json --host 0.0.0.0 --port 5000 --watch",
+    "start:json": "json-server api.json --host 0.0.0.0 --port 5000 --watch",
     "start": "node tool/bin/react-scripts.js start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "build": "node tool/bin/react-scripts.js build",
+    "start:static": "node tool/quick-server.js 3000",
+    "test:init": "webdriver-manager update",
+    "test": "protractor e2e/conf.js",
     "eject": "react-scripts eject",
-    "compile:tool": "cd tool && ../node_modules/.bin/tsc -w"
+    "build:tool": "cd tool && ../node_modules/.bin/tsc -w",
+    "build:ssr": "node tool/bin/react-scripts.js ssr",
+    "check-types": "tsc"
   },
   "dependencies": {
     "json-server": "^0.14.2",
     "node-sass": "^4.12.0",
     "require-injector": "~5.1.0",
-    "source-map-support": "~0.5.12"
+    "source-map-support": "~0.5.12",
+    "fs-extra": "~7.0.1",
+    "@types/fs-extra": "~7.0.0"
   },
   "devDependencies": {
-    "@material-ui/core": "4.0.0",
     "@types/jest": "24.0.12",
     "@types/node": "12.0.0",
     "@types/react": "16.8.16",
@@ -34,8 +39,27 @@
     "react-scripts": "3.0.0",
     "typescript": "3.4.5",
     "node-sass": "~4.12.0",
-    "cross-fetch": "~0.0.3",
-    "lodash": "~4.17.11"
+    "cross-fetch": "~3.0.3",
+    "lodash": "~4.17.11",
+    "log4js": "~4.3.0",
+    "typeface-roboto": "~0.0.54",
+    "classnames": "~2.2.6",
+    "@types/classnames": "~2.2.7",
+    "@material-ui/core": "4.0.0",
+    "@material-ui/icons": "4.0.0",
+    "react-router-dom": "~5.0.0",
+    "@types/react-router-dom": "~4.3.3",
+    "@loadable/component": "~5.10.1",
+    "matchmedia-polyfill": "^0.3.2",
+    "rxjs": "~6.5.2",
+    "@types/webpack": "~4.4.32",
+    "protractor": "^5.4.2",
+    "express": "~4.17.1",
+    "@types/express": "~4.16.1",
+    "compression": "^1.7.4",
+    "ts-node": "~8.2.0",
+    "jasmine-core": "~2.99.1",
+    "jasmine-spec-reporter": "~4.2.1"
   },
   "browserslist": {
     "production": [
