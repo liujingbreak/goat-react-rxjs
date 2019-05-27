@@ -1,0 +1,58 @@
+{
+  "name": "frontend-interview-takehome",
+  "version": "1.0.0",
+  "description": "Mock JSON server to support Frontend take-home interview.",
+  "author": "GOAT Engineering <dev@goat.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "engines": {
+    "node": "10.15.0"
+  },
+  "engineStrict": true,
+  "scripts": {
+    "start-json": "json-server api.json --host 0.0.0.0 --port 5000 --watch",
+    "start": "node tool/bin/react-scripts.js start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "compile:tool": "cd tool && ../node_modules/.bin/tsc -w"
+  },
+  "dependencies": {
+    "json-server": "^0.14.2",
+    "node-sass": "^4.12.0",
+    "require-injector": "~5.1.0",
+    "source-map-support": "~0.5.12"
+  },
+  "devDependencies": {
+    "@material-ui/core": "4.0.0",
+    "@types/jest": "24.0.12",
+    "@types/node": "12.0.0",
+    "@types/react": "16.8.16",
+    "@types/react-dom": "16.8.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.0",
+    "typescript": "3.4.5",
+    "node-sass": "~4.12.0",
+    "cross-fetch": "~0.0.3",
+    "lodash": "~4.17.11"
+  },
+  "browserslist": {
+    "production": [
+      "ie >= 8",
+      "ff >= 30",
+      "chrome >= 34",
+      "safari >= 7",
+      "ios >= 7",
+      "android >= 4.0"
+    ],
+    "development": [
+      "ie >= 8",
+      "ff >= 30",
+      "chrome >= 34",
+      "safari >= 7",
+      "ios >= 7",
+      "android >= 4.0"
+    ]
+  }
+}
