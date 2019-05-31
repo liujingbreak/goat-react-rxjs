@@ -1,4 +1,4 @@
-# Sneaker Exercise Demonstration
+# Demo project GOAT
 
 React 16 + Rxjs + Typescript + create-react-app
 
@@ -15,16 +15,18 @@ npm run build
 npm run start:static
 ```
 
-#### 2. Start mock json API server at localhost:5000
-Open another terminal, and run commands
+#### 2. Start mock API server at localhost:5000
+Open another terminal, and run command
 ```
 npm run start:json
 ```
 
-#### 3. Visit `http://localhost:3000` with browser
+#### 3. Visit `http://localhost:3000` like a boss
+[http://localhost:3000](http://localhost:3000)
 
-### Run End-to-end Test
->  Yes, I would choose to use limited time on writing end-to-end test instead of unit test in reality too.
+
+### Run end-to-end test
+>  Yes, I choose to use my limited time on writing end-to-end test instead of unit test in reality too.
 
 At first time, need to install Webdriver manager and other required dependencies.
 ```bash
@@ -35,7 +37,7 @@ Then run actual test.
 ```
 npm test
 ```
-> During run test, above `start:json` and `start:static` commands should also be keep running.
+> During run test, above `start:json` and `start:static` commands should also be kept running.
 
 ## Other user story assumptions
 - As a user, I can see responsive grid layout for sneaker list page, with 2-3-4-6 columns in difference size device, the grid cell border should be drawn properly.
@@ -54,15 +56,14 @@ npm test
 - As a SEO crawler, I want see those static pages served in `/sneakers/....` address.
    - `No, the author is too tired to demo it in this exercise`.
 
-## Nonfunctionals
+## Nonfunctional assumptions
 
 - [ ] Error tracking, sending with Snowplow.
 - [x] Error page (when API down or some serious issue occurs)
 - [x] Redirect to /sneakers when user visiting inexisting page.
-- [ ] 
 - [ ] Animation HOC
 - [ ] SSR and SEO friendly
-  - create-react-app does not support SSR out of box, need work on tools.
+  - create-react-app does not support SSR out of box, need to work on tools.
 - [ ] Show Sneaker details from lru cache ? (or HTTP API cache is enabled)
 - [x] End-to-end test
 - [ ] Device supporting ( down to Android 4.4 ?)
