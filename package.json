@@ -18,7 +18,7 @@
     "test": "protractor e2e/conf.js",
     "eject": "react-scripts eject",
     "build:tool": "cd tool && ../node_modules/.bin/tsc -w",
-    "build:ssr": "node tool/bin/react-scripts.js ssr",
+    "build:ssr": "node tool/scripts/ssr.js",
     "check-types": "tsc"
   },
   "dependencies": {
@@ -53,6 +53,7 @@
     "matchmedia-polyfill": "^0.3.2",
     "rxjs": "~6.5.2",
     "@types/webpack": "~4.4.32",
+    "webpack-node-externals": "~1.7.2",
     "protractor": "^5.4.2",
     "express": "~4.17.1",
     "@types/express": "~4.16.1",
