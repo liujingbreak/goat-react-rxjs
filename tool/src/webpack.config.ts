@@ -15,6 +15,20 @@ export = function(env: any) {
 	
 	Object.assign(config.resolve.alias, require('rxjs/_esm5/path-mapping')());
 
+	Object.assign(config.optimization.splitChunks, {
+		chunks: 'all',
+		// name: false, default is false for production
+		cacheGroups: {
+			lazyVendor: {
+				name: 'lazy-vendor',
+				chunks: 'async',
+				enforce: true,
+				test: /[\\/]node_modules[\\/]/,
+				priority: 1
+			}
+		}
+	})
+
 	const ssrConfig = (global as any).__SSR;
 	if (ssrConfig)
 		ssrConfig(config);
