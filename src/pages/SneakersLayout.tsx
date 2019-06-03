@@ -12,24 +12,24 @@ const SneakerDetail = React.lazy(() => import('../pages/SneakerDetail'));
  * when user navigates to detail page.
  */
 class SneakerLayout extends React.Component<RouteComponentProps, {listVisible: boolean}> {
-	// constructor(props: RouteComponentProps) {
-	// 	super(props);
-	// }
+  // constructor(props: RouteComponentProps) {
+  // 	super(props);
+  // }
 
-	render() {
-		return (
-			<BaseRoute>
-				<React.Suspense fallback={<div>loading....</div>}>
-					<Animatable visible={this.props.match && this.props.match.isExact}>
-						<Sneakers match={this.props.match}></Sneakers>
-					</Animatable>
-					<Switch>
-						<Route path={this.props.match.url + "/:name"} component={SneakerDetail}/>
-					</Switch>
-				</React.Suspense>
-			</BaseRoute>
-		);
-	}
+  render() {
+    return (
+      <BaseRoute>
+        <React.Suspense fallback={<div>loading....</div>}>
+          <Animatable visible={this.props.match && this.props.match.isExact}>
+            <Sneakers match={this.props.match}></Sneakers>
+          </Animatable>
+          <Switch>
+            <Route path={this.props.match.url + '/:name'} component={SneakerDetail}/>
+          </Switch>
+        </React.Suspense>
+      </BaseRoute>
+    );
+  }
 }
 
 export default withRouter(SneakerLayout);

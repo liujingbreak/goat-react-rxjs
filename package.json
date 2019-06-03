@@ -18,8 +18,10 @@
     "test": "protractor e2e/conf.js",
     "eject": "react-scripts eject",
     "build:tool": "cd tool && ../node_modules/.bin/tsc -w",
-    "build:ssr": "node tool/bin/react-scripts.js ssr",
-    "check-types": "tsc"
+    "build:ssr": "node tool/scripts/ssr.js",
+    "check-types": "tsc",
+    "lint": "tslint -c tslint.json src/**/*.tsx",
+    "lint:fix": "tslint --fix -c tslint.json src/**/*.tsx"
   },
   "dependencies": {
     "json-server": "^0.14.2",
@@ -59,7 +61,10 @@
     "compression": "^1.7.4",
     "ts-node": "~8.2.0",
     "jasmine-core": "~2.99.1",
-    "jasmine-spec-reporter": "~4.2.1"
+    "jasmine-spec-reporter": "~4.2.1",
+    "tslint-eslint-rules": "^4.1.1",
+    "tslint": "^5.17.0",
+    "tslint-react-hooks": "^2.1.0"
   },
   "browserslist": {
     "production": [

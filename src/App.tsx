@@ -1,7 +1,7 @@
 import React from 'react';
 import st from './App.module.scss';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import NotFound from './shared/NotFound';
 import ErrorBoundary from './shared/ErrorBoundary';
 import SneakersLayout from './pages/SneakersLayout';
@@ -32,11 +32,11 @@ const App: React.FC = () => {
               <header className={st['App-header']}>
                 Hey Goat.
               </header>
-              {error ? <h1 className="center">Something went wrong</h1> : ''}
+              {error ? <h1 className='center'>Something went wrong</h1> : ''}
               <React.Suspense fallback={<div>loading....</div>}>
                 <Switch>
-                  <Route path="/" exact render={() => <Redirect to="/sneakers"/>}></Route>
-                  <Route path="/sneakers" component={SneakersLayout}/>
+                  <Route path='/' exact render={() => <Redirect to='/sneakers'/>}></Route>
+                  <Route path='/sneakers' component={SneakersLayout}/>
                   <Route component={NotFound}/>
                 </Switch>
               </React.Suspense>
@@ -46,6 +46,6 @@ const App: React.FC = () => {
       </ErrorBoundary>
     </React.Fragment>
   );
-}
+};
 
 export default App;
