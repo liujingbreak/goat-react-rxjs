@@ -20,8 +20,8 @@
     "build:tool": "cd tool && ../node_modules/.bin/tsc -w",
     "build:ssr": "node tool/scripts/ssr.js",
     "check-types": "tsc",
-    "lint": "tslint -c tslint.json src/**/*.tsx",
-    "lint:fix": "tslint --fix -c tslint.json src/**/*.tsx"
+    "lint": "tslint -c tslint.json {src,tool}/**/**/*.t{sx,s}",
+    "lint:fix": "tslint --fix -c tslint.json {src,tool}/**/**/*.t{sx,s}"
   },
   "dependencies": {
     "json-server": "^0.14.2",
@@ -52,6 +52,7 @@
     "react-router-dom": "~5.0.0",
     "@types/react-router-dom": "~4.3.3",
     "@loadable/component": "~5.10.1",
+    "@types/loadable__component": "~5.9.0",
     "matchmedia-polyfill": "^0.3.2",
     "rxjs": "~6.5.2",
     "@types/webpack": "~4.4.32",
