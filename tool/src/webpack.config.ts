@@ -3,6 +3,7 @@ import _ from 'lodash';
 import fs from 'fs-extra';
 import { isRegExp } from 'util';
 import {Configuration} from 'webpack';
+const StatsPlugin = require('stats-webpack-plugin');
 const origWebpackConfig = require('react-scripts/config/webpack.config');
 
 export = function(env: any) {
@@ -14,8 +15,7 @@ export = function(env: any) {
   // - loader and plugins for monorepo and multi-repo project
   // - babel-plugin-lodash
 
-  Object.assign(config.resolve.alias, require('rxjs/_esm5/path-mapping')());
-
+  Object.assign(config.resolve.alias, require('rxjs/_esm2015/path-mapping')());
   Object.assign(config.optimization.splitChunks, {
     chunks: 'all',
     // name: false, default is false for production
@@ -29,6 +29,7 @@ export = function(env: any) {
       }
     }
   });
+  config.plugins.push(new StatsPlugin('stats.json', 'verbose'));
 
   const ssrConfig = (global as any).__SSR;
   if (ssrConfig) {

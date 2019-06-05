@@ -17,9 +17,10 @@
     "test:init": "webdriver-manager update",
     "test": "protractor e2e/conf.js",
     "eject": "react-scripts eject",
-    "build:tool": "cd tool && ../node_modules/.bin/tsc -w",
+    "build:tool": "cd tool && tsc -w",
     "build:ssr": "node tool/scripts/ssr.js",
     "check-types": "tsc",
+    "analyze": "webpack-bundle-analyzer build/stats.json",
     "lint": "tslint -c tslint.json {src,tool}/**/**/*.t{sx,s}",
     "lint:fix": "tslint --fix -c tslint.json {src,tool}/**/**/*.t{sx,s}"
   },
@@ -65,7 +66,9 @@
     "jasmine-spec-reporter": "~4.2.1",
     "tslint-eslint-rules": "^4.1.1",
     "tslint": "^5.17.0",
-    "tslint-react-hooks": "^2.1.0"
+    "tslint-react-hooks": "^2.1.0",
+    "webpack-bundle-analyzer": "^3.3.2",
+    "stats-webpack-plugin": "^0.7.0"
   },
   "browserslist": {
     "production": [
