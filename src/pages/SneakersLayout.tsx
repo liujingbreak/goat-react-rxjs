@@ -38,4 +38,3 @@ class SneakerLayout extends React.Component<RouteComponentProps, {listVisible: b
 }
 
 export default withRouter(SneakerLayout);
-

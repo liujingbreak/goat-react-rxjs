@@ -17,6 +17,7 @@ const ij = new Injector();
 (global as any).__SSR = function(config: Configuration) {
   // config.mode = 'development';
   config.entry = [Path.resolve('./src/App.server.tsx')];
+  // config.entry = [Path.resolve('./src/test.tsx')];
   config.output.path = Path.resolve('ssr-build');
   config.output.filename = '[name].js';
   config.output.chunkFilename = '[name].chunk.js';

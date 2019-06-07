@@ -1,7 +1,7 @@
 import React from 'react';
 import {trackError} from '../common/utils';
 
-class ErrorBoundary extends React.Component<any, {hasError: boolean}> {
+export default class ErrorBoundary extends React.Component<any, {hasError: boolean}> {
   constructor(props: any) {
     super(props);
     this.state = { hasError: false };
@@ -26,5 +26,3 @@ class ErrorBoundary extends React.Component<any, {hasError: boolean}> {
     return this.props.children;
   }
 }
-
-export default ErrorBoundary;

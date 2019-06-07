@@ -1,11 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const server_1 = __importDefault(require("react-dom/server"));
-const serverApp = require('../ssr-build/main.js');
-const html = server_1.default.renderToString(serverApp.default);
+const tslib_1 = require("tslib");
+const server_1 = tslib_1.__importDefault(require("react-dom/server"));
+const { default: app, context } = require('../ssr-build/main.js');
+const html = server_1.default.renderToString(app);
 // tslint:disable-next-line:no-console
-console.log(html);
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicnVuLXNzci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbInNyYy9ydW4tc3NyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7O0FBQ0EsOERBQThDO0FBQzlDLE1BQU0sU0FBUyxHQUFHLE9BQU8sQ0FBQyxzQkFBc0IsQ0FBQyxDQUFDO0FBRWxELE1BQU0sSUFBSSxHQUFHLGdCQUFjLENBQUMsY0FBYyxDQUFDLFNBQVMsQ0FBQyxPQUFPLENBQUMsQ0FBQztBQUM5RCxzQ0FBc0M7QUFDdEMsT0FBTyxDQUFDLEdBQUcsQ0FBQyxJQUFJLENBQUMsQ0FBQyJ9
+console.log(html, context);
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicnVuLXNzci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uL3RzL3Rvb2wvcnVuLXNzci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFDQSxzRUFBOEM7QUFDOUMsTUFBTSxFQUFDLE9BQU8sRUFBRSxHQUFHLEVBQUUsT0FBTyxFQUFDLEdBQUcsT0FBTyxDQUFDLHNCQUFzQixDQUFDLENBQUM7QUFFaEUsTUFBTSxJQUFJLEdBQUcsZ0JBQWMsQ0FBQyxjQUFjLENBQUMsR0FBRyxDQUFDLENBQUM7QUFDOUMsc0NBQXNDO0FBQ3hDLE9BQU8sQ0FBQyxHQUFHLENBQUMsSUFBSSxFQUFFLE9BQU8sQ0FBQyxDQUFDIn0=

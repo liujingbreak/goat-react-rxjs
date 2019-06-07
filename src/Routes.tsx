@@ -7,8 +7,9 @@ import {createMediaQuery} from './common/utils';
 import {sneakerStoreSubjects} from './store/SneakerSubjects';
 
 const Routes: React.FC = () => {
-  const [mediaQueryState, setMediaQueyState] = React.useState<number>();
+  const [mediaQueryState, setMediaQueyState] = React.useState<number>(4);
   const [error, setError] = React.useState<Error|null>(null);
+  const [title, setTitle] = React.useState<string>(sneakerStoreSubjects.title.getValue());
 
   React.useEffect(() => {
     const sub = createMediaQuery().subscribe(setMediaQueyState);
@@ -19,12 +20,15 @@ const Routes: React.FC = () => {
     sneakerStoreSubjects.error.subscribe(err => {
       setError(err);
     });
+
+    const sub = sneakerStoreSubjects.title.subscribe(text => setTitle(text));
+    return () => sub.unsubscribe();
   });
 
   return (
     <div className={st.App + ' device-width-' + mediaQueryState}>
       <header className={st['App-header']}>
-      Hey Goat.
+      {title}
       </header>
       {error ? <h1 className='center'>Something went wrong</h1> : ''}
       <Switch>

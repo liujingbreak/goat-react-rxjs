@@ -1,4 +1,4 @@
-import {trackError} from '../common/utils';
+import * as utils from '../common/utils';
 import {BehaviorSubject} from 'rxjs';
 
 const apiUrl = process.env.REACT_APP_API_URL || '//localhost:5000';
@@ -30,10 +30,15 @@ export class SneakerStore {
 }
 
 export class SneakerStoreSubjects {
+  title = new BehaviorSubject('GOAT');
+  route = new BehaviorSubject('/sneakers'); // For SSR static route
   listData = new BehaviorSubject(new SneakerList());
   itemData = new BehaviorSubject<SneakerItemDetail|null>(null);
   loading = new BehaviorSubject(false);
   error = new BehaviorSubject<Error|null>(null);
+
+  constructor(public trackError: typeof utils.trackError = require('../common/utils').trackError) {
+  }
 
   async getList(page = 1, limit = 20) {
     try {
@@ -54,7 +59,7 @@ export class SneakerStoreSubjects {
     } catch (ex) {
       this.loading.next(false);
       this.error.next(ex);
-      trackError(ex);
+      this.trackError(ex);
       throw ex;
     }
   }
@@ -69,11 +74,12 @@ export class SneakerStoreSubjects {
         this.itemData.next(null);
       } else {
         this.itemData.next(data[0]);
+        this.title.next(data[0].nickname);
       }
     } catch (ex) {
       this.loading.next(false);
       this.error.next(ex);
-      trackError(ex);
+      this.trackError(ex);
       throw ex;
     }
   }
