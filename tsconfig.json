@@ -22,6 +22,8 @@
     "removeComments": true,
     "noUnusedLocals": true,
     "downlevelIteration": true,
+    "preserveWatchOutput": true,
+    "importHelpers": true,
     "jsx": "preserve"
   },
   "include": [

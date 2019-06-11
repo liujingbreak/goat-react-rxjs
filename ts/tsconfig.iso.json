@@ -1,0 +1,11 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+		"rootDir": "../src",
+		"baseUrl": "../src",
+        "outDir": "../ssr-build",
+        "declaration": true
+    },
+    "include": ["../src/store/**/*.tsx"],
+	"exclude": ["../node-modules"]
+}

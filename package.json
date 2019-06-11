@@ -17,11 +17,12 @@
     "test:init": "webdriver-manager update",
     "test": "protractor e2e/conf.js",
     "eject": "react-scripts eject",
-    "build:tool": "cd tool && ../node_modules/.bin/tsc -w",
-    "build:ssr": "node tool/scripts/ssr.js",
+    "build:tool": "cd ts && tsc -w",
+    "build:ssr": "node tool/scripts/ssr.js && cd ts && tsc -p tsconfig.iso.json -w",
     "check-types": "tsc",
-    "lint": "tslint -c tslint.json src/**/*.tsx",
-    "lint:fix": "tslint --fix -c tslint.json src/**/*.tsx"
+    "analyze": "webpack-bundle-analyzer build/stats.json",
+    "lint": "tslint -c tslint.json {src,ts}/**/**/*.t{sx,s}",
+    "lint:fix": "tslint --fix -c tslint.json {src,ts}/**/**/*.t{sx,s}"
   },
   "dependencies": {
     "json-server": "^0.14.2",
@@ -52,6 +53,7 @@
     "react-router-dom": "~5.0.0",
     "@types/react-router-dom": "~4.3.3",
     "@loadable/component": "~5.10.1",
+    "@types/loadable__component": "~5.9.0",
     "matchmedia-polyfill": "^0.3.2",
     "rxjs": "~6.5.2",
     "@types/webpack": "~4.4.32",
@@ -64,7 +66,10 @@
     "jasmine-spec-reporter": "~4.2.1",
     "tslint-eslint-rules": "^4.1.1",
     "tslint": "^5.17.0",
-    "tslint-react-hooks": "^2.1.0"
+    "tslib": "^1.9.3",
+    "tslint-react-hooks": "^2.1.0",
+    "webpack-bundle-analyzer": "^3.3.2",
+    "stats-webpack-plugin": "^0.7.0"
   },
   "browserslist": {
     "production": [
