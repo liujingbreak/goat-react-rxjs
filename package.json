@@ -61,6 +61,8 @@
     "express": "~4.17.1",
     "@types/express": "~4.16.1",
     "compression": "^1.7.4",
+    "@types/serve-index": "^1.7.29",
+    "serve-index": "^1.9.1",
     "ts-node": "~8.2.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",

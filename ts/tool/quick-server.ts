@@ -4,7 +4,7 @@ import * as https from 'https';
 const compression = require('compression');
 import express, {Request, Response, NextFunction} from 'express';
 import sneakerServer from '../server/sneakers.server';
-
+import serveIndex from 'serve-index';
 // const log = log4js.getLogger('quick-server');
 let server: https.Server | http.Server;
 
@@ -18,15 +18,22 @@ export function activate() {
   // }));
   app.use(compression());
 
-  sneakerServer(app);
-  app.get('/*', (req: Request, res: Response, next: NextFunction) => {
-    if ((req.method === 'GET' && req.url.length > 0 && req.path.indexOf('.') < 0)) {
-      req.url = '/index.html';
-    }
-    next();
-  });
+  if (process.env.LIST_DIR) {
+    console.log('Serve static directory', process.env.LIST_DIR);
+    app.use(express.static(process.env.LIST_DIR));
+    const indexRoute = serveIndex(process.env.LIST_DIR, {icons: true});
 
-  app.use(express.static('build'));
+    app.use('/', indexRoute);
+  } else {
+    sneakerServer(app);
+    app.get('/*', (req: Request, res: Response, next: NextFunction) => {
+      if ((req.method === 'GET' && req.url.length > 0 && req.path.indexOf('.') < 0)) {
+        req.url = '/index.html';
+      }
+      next();
+    });
+    app.use(express.static('build'));
+  }
 
   app.use(function(req, res, next) {
     console.log('Not Found: ' + req.originalUrl);
