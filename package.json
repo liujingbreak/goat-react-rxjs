@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "json-server": "^0.14.2",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "require-injector": "~5.1.0",
     "source-map-support": "~0.5.12",
     "fs-extra": "~7.0.1",
@@ -41,7 +41,7 @@
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.0",
     "typescript": "3.4.5",
-    "node-sass": "~4.12.0",
+    "node-sass": "~4.13.1",
     "cross-fetch": "~3.0.3",
     "lodash": "~4.17.11",
     "log4js": "~4.3.0",
