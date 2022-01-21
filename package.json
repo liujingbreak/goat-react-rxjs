@@ -44,7 +44,7 @@
     "node-sass": "~4.12.0",
     "cross-fetch": "~3.0.3",
     "lodash": "~4.17.11",
-    "log4js": "~4.3.0",
+    "log4js": "~6.4.0",
     "typeface-roboto": "~0.0.54",
     "classnames": "~2.2.6",
     "@types/classnames": "~2.2.7",
